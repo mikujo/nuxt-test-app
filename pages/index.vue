@@ -9,6 +9,12 @@
       <li>
         <router-link to="/mypage">My Page</router-link>
       </li>
+      <li>
+        <router-link to="/users">users/index</router-link>
+      </li>
+      <li>
+        <router-link to="/users/other">users/other</router-link>
+      </li>
     </ul>
   </section>
 </template>
