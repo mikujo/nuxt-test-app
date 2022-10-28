@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <p>{{ message }}</p>
+    <!-- <p class="title">{{ message }}</p>
     <hr />
     <ul>
       <li>
@@ -15,16 +15,29 @@
       <li>
         <router-link to="/users/other">users/other</router-link>
       </li>
-    </ul>
+    </ul> -->
+    <div>{{ users }}</div>
   </section>
 </template>
 
 <script>
+
+const axios = require('axios')
+let url = 'https://jsonplaceholder.typicode.com/users'
+
 export default {
-  data: function() {
-    return {
-      message: 'Hello World!'
-    }
+  asyncData({ params }) {
+    return axios.get(url)
+      .then((res) => {
+        return { users: res.data }
+      })
   }
 }
+
 </script>
+
+<style scoped>
+.title {
+  font-family: "M PLUS Rounded 1c";
+}
+</style>
